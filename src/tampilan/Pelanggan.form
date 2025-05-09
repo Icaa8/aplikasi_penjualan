@@ -144,12 +144,14 @@
                   <Component id="txtalamat" min="-2" pref="78" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="bsimpan" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="bubah" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="bhapus" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="bbatal" alignment="1" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="bkeluar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="bsimpan" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="bubah" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="bhapus" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="bkeluar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel7" min="-2" pref="22" max="-2" attributes="0"/>
