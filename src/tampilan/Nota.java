@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package tampilan;
 
 import java.sql.*;
@@ -9,6 +5,7 @@ import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JSpinner;
+//import tampilan.Nota;
 import koneksi.koneksi;
 
 /**
@@ -16,9 +13,9 @@ import koneksi.koneksi;
  * @author erica aghestin
  */
 public class Nota extends javax.swing.JFrame {
-public String id, nama, jenis, telp, almt;
+public String id_nota, nama, jenis, telp, almt;
 public String kdbrg, nmbrg, jenisbrg, hb, hj;
-private Connection conn = new koneksi ().connect();
+private Connection conn = new koneksi().connect();
 private DefaultTableModel tabmode;
 
     /**
@@ -58,7 +55,7 @@ protected void aktif(){
 }
 
 protected void kosong(){
-          txtid.setText("");
+          txtid_nota.setText("");
           txtnm.setText("");
           txtkdbrg.setText("");
           txthb.setText("");
@@ -69,12 +66,12 @@ protected void kosong(){
 
 protected void autonumber(){
      try { 
-             String sql = "SELECT idnota FROM nota order by idnota asc";
+             String sql = "SELECT id_nota FROM nota order by id_nota asc";
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql);
              txtkdbrg.setText("IN0001");
              while (rs.next()) {
-                 String id_nota = rs.getString("idnota").substring(2);
+                 String id_nota = rs.getString("id_nota").substring(2);
                  int AN = Integer.parseInt(id_nota) + 1;
                  String Nol ="";
 
@@ -97,7 +94,7 @@ protected void autonumber(){
 public void itemTerpilih(){
         Popup_pelanggan Pp = new Popup_pelanggan();
         Pp.plgn = this;
-        txtid.setText(id);
+        txtid.setText(id_nota);
         txtnm.setText(nama);
         txtalmt.setText(almt);
 }
@@ -120,7 +117,7 @@ public void itemTerpilih(){
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtidnota = new javax.swing.JTextField();
+        txtid_nota = new javax.swing.JTextField();
         txtid = new javax.swing.JTextField();
         txtnm = new javax.swing.JTextField();
         txtalmt = new javax.swing.JTextField();
@@ -208,6 +205,8 @@ public void itemTerpilih(){
 
         jLabel19.setText("jLabel19");
 
+        jtgl.setModel(new javax.swing.SpinnerDateModel());
+
         txtqty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtqtyActionPerformed(evt);
@@ -294,7 +293,7 @@ public void itemTerpilih(){
                                 .addGap(3, 3, 3)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtidnota, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtid_nota, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(191, 191, 191)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -392,7 +391,7 @@ public void itemTerpilih(){
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtidnota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtid_nota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(jtgl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -502,7 +501,7 @@ public void itemTerpilih(){
                 {
                 System.out.println("Error : "+e);
             }
-             txtid.setText("");
+             txtid_nota.setText("");
              txtnm.setText("");
              txtkdbrg.setText("");
              txthb.setText("");
@@ -510,6 +509,12 @@ public void itemTerpilih(){
              txtqty.setText("");
              txttotal.setText("");
              hitung();
+    }
+
+    private void hitung(){
+        //contoh sederhana menampilkan jumlah baris di table
+        int table = tbltransaksi.getRowCount();
+        txttotal.setText(String.valueOf(txttotal));
     }//GEN-LAST:event_btambahActionPerformed
 
     private void bhapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bhapusActionPerformed
@@ -527,7 +532,7 @@ public void itemTerpilih(){
             try{
                 
                 PreparedStatement stat = conn.prepareStatement(sql);
-                stat.setString(1, txtidnota.getText());
+                stat.setString(1, txtid_nota.getText());
                 stat.setString(2, fd);
                 stat.setString(3, txtid.getText());
                 stat.setString(4, jLabel16.getText());
@@ -537,17 +542,17 @@ public void itemTerpilih(){
                 int t = tbltransaksi.getRowCount();
                 for(int i=0; i < t ; i++)
                 {
-                String xkd = tbltransaksi.getValueAt(i, 0).toString();
-                String xhb = tbltransaksi.getValueAt(i, 2).toString();
-                String xhj = tbltransaksi.getValueAt(i, 3).toString();
-                String xqty = tbltransaksi.getValueAt(i, 4).toString();
+                String txtkdbrg = tbltransaksi.getValueAt(i, 0).toString();
+                String txthb = tbltransaksi.getValueAt(i, 2).toString();
+                String txthj = tbltransaksi.getValueAt(i, 3).toString();
+                String txtqty = tbltransaksi.getValueAt(i, 4).toString();
                 
                 PreparedStatement stat2 = conn.prepareStatement(zsql);
-                stat2.setString(1, txtidnota.getText());
-                stat2.setString(2, xkd);
-                stat2.setString(3, xhb);
-                stat2.setString(4, xhj);
-                stat2.setString(5, xqty);
+                stat2.setString(1, txtid_nota.getText());
+                stat2.setString(2, txtkdbrg);
+                stat2.setString(3, txthb);
+                stat2.setString(4, txthj);
+                stat2.setString(5, txtqty);
                 
                 stat2.executeUpdate();
                 }
@@ -644,7 +649,7 @@ public void itemTerpilih(){
     private javax.swing.JTextField txthb;
     private javax.swing.JTextField txthj;
     private javax.swing.JTextField txtid;
-    private javax.swing.JTextField txtidnota;
+    private javax.swing.JTextField txtid_nota;
     private javax.swing.JTextField txtkdbrg;
     private javax.swing.JTextField txtnm;
     private javax.swing.JTextField txtnmbrg;

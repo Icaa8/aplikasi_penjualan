@@ -8,7 +8,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyEvent;
-import penjualan.Nota;
+import tampilan.Nota;
 import koneksi.koneksi;
 
 /**

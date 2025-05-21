@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyEvent;
-import pelanggan.Nota;
+import tampilan.Nota;
 import koneksi.koneksi;
 
 /**
@@ -141,7 +141,7 @@ private DefaultTableModel tabmode;
 
     private void tblplgnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblplgnMouseClicked
             int tablePelanggan = tblplgn.getSelectedRow();
-            plgn.id =tblplgn.getValueAt(tablePelanggan, 0).toString();
+            plgn.id_nota =tblplgn.getValueAt(tablePelanggan, 0).toString();
             plgn.nama =tblplgn.getValueAt(tablePelanggan, 1).toString();
             plgn.jenis =tblplgn.getValueAt(tablePelanggan, 2).toString();
             plgn.telp =tblplgn.getValueAt(tablePelanggan, 3).toString();
