@@ -48,7 +48,7 @@ private DefaultTableModel tabmode;
         String cariitem=txtcari.getText();
                 
         try {
-            String sql = "SELECT * FROM barang where kdbrg like '&"+cariitem+"&' or nmbrg like'&"+cariitem+"&' order by kdbrg asc";
+            String sql = "SELECT * FROM barang where kd_barang like '&"+cariitem+"&' or nm_barang like'&"+cariitem+"&' order by kd_barang asc";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()){
