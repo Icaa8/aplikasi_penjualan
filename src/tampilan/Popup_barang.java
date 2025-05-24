@@ -36,7 +36,7 @@ protected void datatable(){
           String cariitem=txtcari.getText();
           
           try {
-              String sql ="SELECT * FROM barang where kdbrg lika '%"+cariitem+"%' or nmbrg like'%"+cariitem+"%' order by kdbrg asc";
+              String sql ="SELECT * FROM barang where kd_barang lika '%"+cariitem+"%' or nm_barang like'%"+cariitem+"%' order by kd_barang asc";
               java.sql.Statement stat = conn.createStatement();
               ResultSet hasil = stat.executeQuery(sql);
               while (hasil.next()){

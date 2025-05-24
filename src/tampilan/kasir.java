@@ -45,7 +45,7 @@ public class kasir extends javax.swing.JFrame {
         tabmode = new DefaultTableModel(null, Baris);
         String cariitem = txtcaridt_kasir.getText();
             try {
-                String sql = "Select * FROM kasir where id_kasir like '%"+cariitem+"%' or nama_kasir like '%"+cariitem+"%' order by id_kasir asc";
+                String sql = "Select * FROM kasir where id_kasir like '%"+cariitem+"%' or nm_kasir like '%"+cariitem+"%' order by id_kasir asc";
                 Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
                 while (hasil.next()){

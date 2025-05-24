@@ -33,12 +33,12 @@ private DefaultTableModel tabmode;
     }
     
     protected void datatable(){
-        Object[] Baris ={"ID Pelanggan","Jenis Kelamin","No. Telepon","Aalamat"};
+        Object[] Baris ={"Pelanggan","Jenis Kelamin","No. Telepon","Alamat"};
           tabmode = new DefaultTableModel(null, Baris);
           String cariitem=txtcari.getText();
           
           try{
-              String sql = "SLECT * FROM pelanggan where id like '%"+cariitem+"%' or nmplgn like'%"+cariitem+"%' order bt id asc";
+              String sql = "SELECT * FROM pelanggan WHERE id_pelanggan LIKE '%"+cariitem+"%' OR nama_pelanggan LIKE '%"+cariitem+"%' ORDER BY id_pelanggan ASC";
               Statement stat = conn.createStatement();
               ResultSet hasil = stat.executeQuery(sql);
               while (hasil.next()){

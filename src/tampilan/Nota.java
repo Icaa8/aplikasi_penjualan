@@ -94,9 +94,7 @@ protected void autonumber(){
 public void itemTerpilih(){
         Popup_pelanggan Pp = new Popup_pelanggan();
         Pp.plgn = this;
-        txtid.setText(id_nota);
-        txtnm.setText(nama);
-        txtalmt.setText(almt);
+        Pp.setVisible(true);
 }
 
     /**
